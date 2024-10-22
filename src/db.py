@@ -34,10 +34,10 @@ class Sesion(Base):
     __tablename__ = 'sesiones'
     id = Column(Integer, primary_key=True, index=False)
     cliente_id = Column(Integer, ForeignKey('clientes.id'), nullable=False)
-    Computadora_id = Column(Integer, ForeignKey('computadoras.id'), nullable=False)
+    computadora_id = Column(Integer, ForeignKey('computadoras.id'), nullable=False)
     hora_inicio = Column(DateTime, default=datetime.now, nullable=False)
-    hora_fin = Column(DateTime, nullable=False)
-    costo_total = Column(Float, nullable=False)
+    hora_fin = Column(DateTime, nullable=True)
+    costo_total = Column(Float, nullable=True)
     
     cliente = relationship('Cliente')
     computadora = relationship('Computadora')
